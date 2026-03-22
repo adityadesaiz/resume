@@ -1,0 +1,859 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Desai - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #2d3748;
+        }
+
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #3d7ab5 100%);
+            color: white;
+            padding: 50px 60px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+        }
+
+        .name {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 12px;
+            color: #fbbf24;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 60px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f59e0b;
+            display: inline-block;
+        }
+
+        /* Summary */
+        .summary {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .summary strong {
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 8px 25px rgba(30, 58, 95, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .location {
+            font-size: 12px;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .role-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d5a87;
+            margin-bottom: 6px;
+        }
+
+        .duration {
+            font-size: 12px;
+            color: #f59e0b;
+            font-weight: 600;
+            background: #fffbeb;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .achievements li strong {
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+
+        /* AI Projects Section */
+        .ai-projects {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .ai-projects .section-title {
+            color: #fbbf24;
+            border-bottom-color: #fbbf24;
+        }
+
+        .ai-projects .achievements li {
+            color: #e2e8f0;
+        }
+
+        .ai-projects .achievements li::before {
+            color: #fbbf24;
+        }
+
+        .ai-projects .achievements li strong {
+            color: #fbbf24;
+        }
+
+        /* Skills Table */
+        .skills-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .skills-table th {
+            background: #1e3a5f;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .skills-table th:nth-child(2) {
+            background: #2d5a87;
+        }
+
+        .skills-table th:nth-child(3) {
+            background: #3d7ab5;
+        }
+
+        .skills-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+
+        .skills-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .skills-table tr:hover {
+            background: #e2e8f0;
+        }
+
+        .skills-table td:first-child {
+            font-weight: 600;
+            color: #1e3a5f;
+            background: #f1f5f9;
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 10px;
+            border-left: 3px solid #f59e0b;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .cert-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1e3a5f, #2d5a87);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .cert-text {
+            font-size: 13px;
+            color: #2d3748;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .cert-status {
+            font-size: 10px;
+            color: #10b981;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #fbbf24;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .award-icon {
+            font-size: 28px;
+        }
+
+        .award-content h4 {
+            font-size: 14px;
+            color: #92400e;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .award-content p {
+            font-size: 12px;
+            color: #b45309;
+            line-height: 1.5;
+        }
+
+        /* Key Achievements */
+        .key-achievements {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .key-achievements .section-title {
+            color: #fbbf24;
+            border-bottom-color: #fbbf24;
+        }
+
+        .key-achievements ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .key-achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #e2e8f0;
+            break-inside: avoid;
+        }
+
+        .key-achievements li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #fbbf24;
+        }
+
+        .key-achievements li strong {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        /* Contact Footer */
+        .contact-footer {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: white;
+            padding: 40px 60px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fbbf24;
+            margin-bottom: 25px;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(251, 191, 36, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .contact-label {
+            font-size: 10px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Education */
+        .education-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid #22c55e;
+        }
+
+        .education-card h4 {
+            font-size: 16px;
+            color: #166534;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            font-size: 13px;
+            color: #15803d;
+            margin-bottom: 4px;
+        }
+
+        .education-card .grade {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .experience-card:hover,
+            .cert-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+
+            .company-header {
+                flex-direction: column;
+            }
+
+            .key-achievements ul {
+                columns: 1;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .skills-table {
+                font-size: 10px;
+            }
+
+            .skills-table th,
+            .skills-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Aditya Desai</h1>
+            <div class="title">AVP — AI, Data & Cloud Architect | Compliance & Risk Officer (CARO)</div>
+            <div class="subtitle">BFSI Domain Specialist | 9+ Years Experience | Multi-Cloud Expertise</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Professional Summary -->
+            <div class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="summary">
+                    Results-driven <strong>AI, Data & Cloud Architect</strong> with <strong>9+ years of experience</strong> designing, governing, and implementing secure, production-grade AI and cloud solutions for complex business challenges in the <strong>BFSI sector</strong>. Specialises in <strong>Agentic AI, Generative AI, cloud architecture, and regulatory compliance</strong> — with deep expertise across <strong>RBI, SEBI, IRDAI, DPDP Act 2023, PCI-DSS, and GDPR</strong>. Currently serving a dual role as <strong>AVP — AI, Data & Cloud Architect and Compliance & Risk Officer (CARO)</strong> at Mahindra & Mahindra Financial Services Limited, while contributing AI architecture to <strong>Mahindra AI (MAI)</strong> — the dedicated AI division of the M&M Group — managing enterprise data platforms across 3 group companies with <strong>~2.5 PB of data</strong>, reporting directly to the CDAO. Proven track record in closing <strong>30+ RBI audit findings</strong>, achieving <strong>zero critical outages</strong> across all cloud migrations, delivering petabyte-scale data platforms, and architecting production Agentic AI systems — including a voice bot automating <strong>15,000+ daily calls</strong> in a regulated lending environment.
+                </div>
+            </div>
+
+            <!-- AI Projects -->
+            <div class="section">
+                <div class="ai-projects">
+                    <h2 class="section-title">AI Projects — Mahindra AI (MAI) Collaboration</h2>
+                    <p style="font-size: 12px; color: #94a3b8; margin-bottom: 15px; font-style: italic;">Contributing AI Architect to Mahindra AI (MAI) — the dedicated AI division of Mahindra & Mahindra Group — while maintaining MMFSL regulatory responsibilities as mandated by RBI.</p>
+                    <ul class="achievements">
+                        <li><strong>Agentic AI Voice Bot — Lead Architect (Co-Design):</strong> Designed and architected a production-grade Agentic AI voice bot for pre-approved loan offers and EMI reminders, automating <strong>15,000+ daily outbound calls</strong> and reducing manual effort by <strong>70%</strong>. Built on <strong>Azure STT/TTS, OpenAI GPT-4o</strong>, and open-source models for Voice Activity Detection (VAD), End-of-Turn Detection, and audio Denoising. Addressed critical production challenges including <strong>sub-200ms latency optimisation, PII compliance (DPDP Act 2023 consent framework), hallucination risk management</strong>, and responsible AI guardrails in a regulated NBFC lending environment.</li>
+                        <li><strong>AI-Powered Data Dictionary:</strong> Architected and implemented an enterprise <strong>Data Dictionary using Azure OpenAI (GPT)</strong> — the <strong>first GenAI implementation for data governance in a regulated Indian NBFC</strong> — enabling automated metadata management, semantic data lineage, and AI governance for regulated financial data assets across MMFSL group companies.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <!-- MMFSL -->
+                <div class="experience-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Mahindra & Mahindra Financial Services Limited (MMFSL)</div>
+                            <div class="location">Mumbai, Maharashtra</div>
+                        </div>
+                    </div>
+                    <div class="role-title">AVP — Data & Cloud Architect | Compliance & Risk Officer (CARO)</div>
+                    <span class="duration">June 2024 — Present (1 Year 9 Months)</span>
+                    <ul class="achievements">
+                        <li><strong>Multi-Cloud Architecture:</strong> Architected and governed enterprise data and application infrastructure across <strong>Azure, AWS, and GCP</strong> for MMFSL and 3 group companies (MIBL, MRHFL, MMIMPL), managing <strong>~2–2.5 PB of data</strong> under the CDAO, ensuring alignment with business and regulatory requirements.</li>
+                        <li><strong>Data Lakehouse & Warehouse:</strong> Designed and implemented enterprise <strong>Azure Lakehouse and Data Warehouse</strong> architecture across group companies, enabling unified data access, governance, and analytics for business intelligence and regulatory reporting.</li>
+                        <li><strong>Regulatory Compliance:</strong> Ensured cloud architecture adheres to <strong>RBI, SEBI, IRDAI, DPDP Act 2023</strong>, and <strong>GDPR-aligned</strong> data governance requirements; successfully closed <strong>30+ RBI audit findings</strong> and led cloud compliance posture for MMFSL group entities.</li>
+                        <li><strong>Report & Pipeline Automation:</strong> Designed and deployed <strong>10+ operational dashboards</strong> including FinOps reporting, data pipeline monitoring, data ingress-egress, and API backend dashboards using cloud-native tools, <strong>Dynatrace</strong>, and <strong>Apache Airflow</strong>.</li>
+                        <li><strong>Change & Incident Management:</strong> Established <strong>Change Management workflows, Data Request ticketing flows, and Incident Management dashboards</strong> ensuring ITIL-compliant operations across cloud platforms.</li>
+                        <li><strong>Security & Zero-Trust:</strong> Enforced enterprise-wide <strong>Zero-Trust security controls</strong> including VPN-only access, DNS isolation, SSL enforcement, credential rotation, and <strong>VAPT closure governance</strong>, eliminating thousands of vulnerability findings pre-audit.</li>
+                        <li><strong>Disaster Recovery:</strong> Directed <strong>DR drills for 50+ applications</strong> across group companies, validating failover, rollback, and network flows; reduced untested DR risk significantly.</li>
+                        <li><strong>Cloud Cost Governance & FinOps:</strong> Led continuous architecture refinement through cross-functional collaboration with developers, data analysts, network admins, and DBAs — optimising cloud spend while scaling workloads across multi-cloud platforms.</li>
+                        <li><strong>NAC & Identity:</strong> Governed <strong>ClearPass NAC rollout</strong> with Active Directory integration, device posture enforcement, and VPN compliance checks across enterprise network.</li>
+                        <li><strong>Team Leadership:</strong> Managing a <strong>2–3 person specialist cloud team</strong> reporting to CDAO; coordinating with Cloud, InfoSec, Network, Infra, and Business teams across MMFSL group entities.</li>
+                    </ul>
+                </div>
+
+                <!-- Kotak -->
+                <div class="experience-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">Kotak Mahindra Bank Limited</div>
+                            <div class="location">Mumbai, Maharashtra</div>
+                        </div>
+                    </div>
+                    <div class="role-title">Associate Vice President — Cloud Solutions Architect</div>
+                    <span class="duration">April 2023 — June 2024 (1 Year 2 Months)</span>
+                    <ul class="achievements">
+                        <li><strong>Data Lakehouse (PB-Scale Migration):</strong> Led end-to-end design and delivery of enterprise <strong>Data Lakehouse on AWS</strong>, migrating petabytes of banking data using <strong>AWS Snow Family</strong> within <strong>3 months</strong> — shortest timeframe achieved — at lowest possible cost; directly negotiated migration plan and <strong>AWS credits</strong> with AWS account team.</li>
+                        <li><strong>Real-Time ETL Pipeline:</strong> Architected and delivered <strong>real-time ETL pipelines</strong> on AWS for <strong>UPI, Debit Card, Credit Card, and Bank transactions</strong>, powering downstream use cases including <strong>real-time fraud detection</strong> and <strong>cross-sell offer generation</strong> for retail banking.</li>
+                        <li><strong>CI/CD & DevOps:</strong> Implemented <strong>Azure DevOps CI/CD pipelines</strong>, reducing application release times by <strong>50%</strong> and minimising production issues by 30% using the AWS Well-Architected Framework.</li>
+                        <li><strong>Cloud Migration:</strong> Led migration from decoupled Compute-Database architecture to <strong>highly scalable cluster architecture</strong>, delivering <strong>50% improvement in application performance</strong> and 60% reduction in server response time.</li>
+                        <li><strong>Payment Systems:</strong> Managed cloud infrastructure supporting <strong>Finacle, UPI, POS, and SWIFT</strong> payment systems, ensuring 99.9%+ availability for critical banking operations.</li>
+                        <li><strong>RBI Compliance:</strong> Participated in and supported <strong>RBI audit processes</strong>, ensuring cloud infrastructure met all regulatory requirements for a scheduled commercial bank.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="role-title">Senior Manager — Cloud Solutions Architect</div>
+                    <span class="duration">June 2021 — April 2023 (1 Year 10 Months)</span>
+                    <ul class="achievements">
+                        <li>Delivered <strong>40% reduction in cloud-related issues</strong> and 15% improvement in overall system performance through proactive architectural optimisation.</li>
+                        <li>Ensured <strong>PCI-DSS compliance</strong> across all cloud-based databases, reducing data breaches by 60% through rigorous security controls.</li>
+                        <li>Achieved <strong>75% reduction in security incidents</strong> through enforcement of cloud security best practices across banking infrastructure.</li>
+                        <li>Led evaluation and adoption of new cloud provider, driving a <strong>30% reduction in cloud infrastructure costs</strong>.</li>
+                    </ul>
+                </div>
+
+                <!-- CloudAge -->
+                <div class="experience-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-name">CloudAge Global Services Pvt. Ltd.</div>
+                            <div class="location">Mumbai, Maharashtra</div>
+                        </div>
+                    </div>
+                    <div class="role-title">Senior Bigdata Administrator</div>
+                    <span class="duration">May 2019 — June 2021 (2 Years 1 Month)</span>
+                    <ul class="achievements">
+                        <li>Designed, deployed, and managed <strong>Cloudera Enterprise clusters</strong> across AWS and Azure for enterprise big data workloads.</li>
+                        <li>Built high-throughput <strong>data pipelines using Apache Kafka, StreamSets, and AWS Kinesis</strong> for real-time and batch processing.</li>
+                        <li>Automated daily operations using <strong>Ansible and Bash scripting</strong>; performed RCA on failed components following ITIL procedures.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="role-title">Hadoop System Engineer</div>
+                    <span class="duration">February 2017 — May 2019 (2 Years 3 Months)</span>
+                    <ul class="achievements">
+                        <li>Provided second-level Hadoop technical support, resolving incidents within <strong>SLA</strong> using ITIL-based service management procedures.</li>
+                        <li>Monitored logs, net flow, and bandwidth utilisation; proactively identified and resolved performance bottlenecks.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Core Competencies -->
+            <div class="section">
+                <h2 class="section-title">Core Competencies</h2>
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Primary Technologies</th>
+                            <th>Secondary/Related</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cloud Platforms</td>
+                            <td>Microsoft Azure, AWS</td>
+                            <td>Google Cloud Platform (GCP) — Multi-Cloud Architecture</td>
+                        </tr>
+                        <tr>
+                            <td>AI / GenAI</td>
+                            <td>Agentic AI, LLM, Azure OpenAI (GPT-4o), RAG</td>
+                            <td>Azure STT/TTS, AWS SageMaker, AI Governance, XAI</td>
+                        </tr>
+                        <tr>
+                            <td>MLOps & Governance</td>
+                            <td>MLOps Pipelines, Model Risk Management</td>
+                            <td>PII Governance, Prompt Engineering, Model Monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>Data Platforms</td>
+                            <td>Azure Lakehouse, Azure Synapse, AWS Data Lakehouse</td>
+                            <td>Hadoop, Cloudera, Apache Spark, Hive</td>
+                        </tr>
+                        <tr>
+                            <td>Data Engineering</td>
+                            <td>Apache Kafka, Apache Airflow, AWS Kinesis</td>
+                            <td>StreamSets, ETL/ELT Pipelines, Real-Time Processing</td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Services</td>
+                            <td>Azure Container Apps, AWS Snow Family, AWS EMR</td>
+                            <td>Azure Data Factory, AWS Glue, Azure OpenAI</td>
+                        </tr>
+                        <tr>
+                            <td>Security & Compliance</td>
+                            <td>Zero-Trust, VAPT, PCI-DSS, RBI Guidelines</td>
+                            <td>SEBI, IRDAI, DPDP Act 2023, GDPR, ClearPass NAC</td>
+                        </tr>
+                        <tr>
+                            <td>FinOps & Governance</td>
+                            <td>Cloud Cost Optimisation, FinOps Frameworks</td>
+                            <td>Cloud Governance, CAB/CABIT, Change Management</td>
+                        </tr>
+                        <tr>
+                            <td>Observability</td>
+                            <td>Dynatrace, Azure Monitor, CloudWatch</td>
+                            <td>CI/CD (Azure DevOps), Ansible, Infrastructure as Code</td>
+                        </tr>
+                        <tr>
+                            <td>Banking Systems</td>
+                            <td>Finacle, UPI, SWIFT, POS</td>
+                            <td>FinnOne LMS, AutoFin, Core Banking Integration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h2 class="section-title">Licenses & Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-text">AWS Certified Solutions Architect — Associate</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-text">AWS Certified Cloud Practitioner</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🔷</div>
+                        <div class="cert-text">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🔄</div>
+                        <div class="cert-text">Confluent Certified Administrator for Apache Kafka</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">📊</div>
+                        <div class="cert-text">CDP Certified Administrator — Private Cloud Base</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🔒</div>
+                        <div class="cert-text">Security Certified Network Specialist (SCNS)</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🐘</div>
+                        <div class="cert-text">IBM Certified Hadoop Administrator</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">🛡️</div>
+                        <div class="cert-text">DPDP Act 2023 & DPDP Rules (Oct 2025)</div>
+                        <div class="cert-status">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">⚡</div>
+                        <div class="cert-text">Lean Six Sigma Yellow Belt</div>
+                        <div class="cert-status">Active</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-card">
+                    <h4>Bachelor of Technology (B.Tech) — Computer Engineering</h4>
+                    <p>Dr. Babasaheb Ambedkar Technological University, Lonere, Maharashtra</p>
+                    <span class="grade">Grade: AA (Distinction)</span>
+                </div>
+            </div>
+
+            <!-- Honors & Awards -->
+            <div class="section">
+                <h2 class="section-title">Honours & Awards</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-icon">🏆</div>
+                        <div class="award-content">
+                            <h4>Rising Star Award (2021)</h4>
+                            <p>Kotak QuanTech Conclave 2021-22, Business Intelligence Unit, Kotak Mahindra Bank</p>
+                        </div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-icon">🥇</div>
+                        <div class="award-content">
+                            <h4>Best Technology Project Award (2022)</h4>
+                            <p>PG Fraud Detection using AI/ML, Kotak QuanTech Conclave 2022-23, Kotak Mahindra Bank</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="section">
+                <div class="key-achievements">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <ul>
+                        <li>Co-architected production <strong>Agentic AI voice bot</strong> automating <strong>15,000+ daily calls</strong> for pre-approved loan offers and EMI reminders — with PII compliance, hallucination risk management, and sub-200ms latency in a regulated NBFC environment.</li>
+                        <li>Architected multi-cloud data platform managing <strong>~2–2.5 PB of financial data</strong> across MMFSL group (MIBL, MRHFL, MMIMPL) on Azure, AWS, and GCP.</li>
+                        <li>Closed <strong>30+ RBI audit findings</strong> across MMFSL, demonstrating deep regulatory compliance and audit management capability.</li>
+                        <li>Delivered petabyte-scale <strong>Data Lakehouse on AWS at Kotak in 3 months</strong> — negotiated AWS Snow Family migration plan and cloud credits directly with AWS.</li>
+                        <li>Built <strong>real-time fraud detection and cross-sell pipeline</strong> for UPI, Debit, Credit Card, and Bank transactions at Kotak Mahindra Bank.</li>
+                        <li>Implemented <strong>AI-powered Data Dictionary using Azure OpenAI</strong> — first GenAI implementation for data governance in a regulated NBFC environment.</li>
+                        <li>Achieved <strong>zero critical outages</strong> across all cloud migrations through governed release management.</li>
+                        <li>Reduced security incidents by <strong>75%</strong> and achieved PCI-DSS compliance across cloud database infrastructure at Kotak Mahindra Bank.</li>
+                        <li>Maintained <strong>99.9%+ availability</strong> for critical payment systems including Finacle, UPI, SWIFT, and POS at Kotak Mahindra Bank.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Footer -->
+        <div class="contact-footer">
+            <div class="contact-title">Get In Touch</div>
+            <div class="contact-grid">
+                <a href="tel:+919011542543" class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <span class="contact-label">Call Me</span>
+                        <div>+91 9011-542543</div>
+                    </div>
+                </a>
+                <a href="mailto:aditya.desai@email.com" class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <span class="contact-label">Email Me</span>
+                        <div>aditya.desai@email.com</div>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/adityadesaiz" target="_blank" class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <span class="contact-label">Connect</span>
+                        <div>linkedin.com/in/adityadesaiz</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
